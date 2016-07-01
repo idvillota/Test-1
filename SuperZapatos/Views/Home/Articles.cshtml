@@ -1,0 +1,157 @@
+﻿<script src="~/Scripts/app/module.js"></script>
+<script src="~/Scripts/app/articleController.js"></script>
+
+<div ng-app="StoreApp" ng-controller="ArticleController">
+
+    <!-- #region Header-->
+    <div class="container">
+        <div class="jumbotron">
+            <h1>SZ</h1>
+        </div>
+        <p><h2>Articles</h2></p>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Detail Section -->
+    <div class="container">
+        <div class="col-md-12">
+            <strong class="error">{{ error }}</strong>
+
+            <p data-ng-hide="addMode">
+                <a data-ng-click="toggleAdd()" href="javascript:;" class="btn btn-primary">Add New</a>
+            </p>
+
+            <form name="addArticle" data-ng-show="addMode" style="margin:0px auto;" class="col-xs-12 col-sm-4 col-md-6 col-lg-12" >
+
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="name" placeholder="please enter your name"
+                               data-ng-model="newArticle.Name" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="col-sm-2 control-label">Description:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="description" placeholder="please enter your description"
+                               data-ng-model="newArticle.Description" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="col-sm-2 control-label">Price:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="price" placeholder="please enter your name"
+                               data-ng-model="newArticle.Price" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="totalInShelf" class="col-sm-2 control-label">Total in Shelf:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="totalInShelf" placeholder="please enter Total in Shelf"
+                               data-ng-model="newArticle.Total_in_shelf" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="totalInVault" class="col-sm-2 control-label">Total in Vault:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="totalInVault" placeholder="please enter Total in Vault"
+                               data-ng-model="newArticle.Total_in_vault" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-2 control-label">Store:</label>
+                    <div class="col-sm-10">
+                        <select ng-model="newArticle.StoreId">
+                            <option ng-repeat="store in stores" value="{{store.id}}">{{store.Name}}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">                        
+                            <br />
+                            <input type="submit" value="Add" data-ng-click="add()" data-ng-disabled="!addArticle.$valid" class="btn btn-primary" />
+                            <input type="button" value="Cancel" data-ng-click="toggleAdd()" class="btn btn-primary" />
+                        </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Table Articles -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" style="width:800px">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Total In Shef</th>
+                        <th>Total In Vault</th>
+                        <th>Store</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr data-ng-repeat="article in articles">
+                        <td>
+                            <strong data-ng-hide="article.editMode">{{ article.id }}</strong>
+                        </td>
+                        <td>
+                            <p data-ng-hide="article.editMode">{{ article.Name }}</p>
+                            <input data-ng-show="article.editMode" type="text" data-ng-model="article.Name" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="article.editMode">{{ article.Description }}</p>
+                            <input data-ng-show="article.editMode" type="text" data-ng-model="article.Description" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="article.editMode">{{ article.Price }}</p>
+                            <input data-ng-show="article.editMode" type="text" data-ng-model="article.Price" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="article.editMode">{{ article.Total_in_shelf }}</p>
+                            <input data-ng-show="article.editMode" type="text" data-ng-model="article.Total_in_shelf" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="article.editMode">{{ article.Total_in_vault }}</p>
+                            <input data-ng-show="article.editMode" type="text" data-ng-model="article.Total_in_vault" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="article.editMode">{{ article.Store.Name }}</p>
+                            <input data-ng-show="article.editMode" type="text" data-ng-model="article.Store.Name" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="article.editMode">
+                                <a data-ng-click="toggleEdit(article)" href="javascript:;">Edit</a> |
+                                <a data-ng-click="deletearticle(article)" href="javascript:;">Delete</a>
+                            </p>
+                            <p data-ng-show="article.editMode">
+                                <a data-ng-click="save(article)" href="javascript:;">Save</a> |
+                                <a data-ng-click="toggleEdit(article)" href="javascript:;">Cancel</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <hr />
+            </div>
+        </div>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Ajax-loader -->
+    <div id="mydiv" data-ng-show="loading">
+        <img src="~/Content/ajax-loader.gif" class="ajax-loader" />
+    </div>
+    <!-- #endregion -->
+
+</div>
+
+<!-- #region Footer -->
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">SZ - 2016...idvillota@gmail.com</p>
+    </div>
+</footer>
+<!-- #endregion -->

@@ -1,0 +1,107 @@
+﻿<script src="~/Scripts/app/module.js"></script>
+<script src="~/Scripts/app/storeController.js"></script>
+
+<div ng-app="StoreApp" ng-controller="StoreController">
+
+    <!-- #region Header-->
+    <div class="container">
+        <div class="jumbotron">
+            <h1>SZ</h1>
+        </div>
+        <p><h2>Stores</h2></p>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Detail Section -->
+    <div class="container">
+        <div class="col-md-12">
+            <strong class="error">{{ error }}</strong>
+            <br />
+            <p data-ng-hide="addMode">
+                <a data-ng-click="toggleAdd()" href="javascript:;" class="btn btn-primary">Add New</a>
+            </p>
+            <br />
+            <form name="addStore" data-ng-show="addMode" style="width:600px;margin:0px auto;">
+                <div class="form-group">
+                    <label for="cname" class="col-sm-2 control-label">Name:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="cname" placeholder="please enter your name" 
+                               data-ng-model="newStore.Name" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-2 control-label">Address:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="address" placeholder="please enter your address" 
+                               data-ng-model="newStore.Address" required />
+                    </div>
+                </div>
+                <br />
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <br />
+                        <input type="submit" value="Add" data-ng-click="add()" data-ng-disabled="!addStore.$valid" class="btn btn-primary" />
+                        <input type="button" value="Cancel" data-ng-click="toggleAdd()" class="btn btn-primary" />
+                    </div>
+                </div>
+                <br />
+            </form>
+        </div>
+    </div>
+    
+    <!-- #region Table Stores -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" style="width:800px">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr data-ng-repeat="store in stores">
+                        <td>
+                            <strong data-ng-hide="store.editMode">{{ store.id }}</strong>
+                        </td>
+                        <td>
+                            <p data-ng-hide="store.editMode">{{ store.Name }}</p>
+                            <input data-ng-show="store.editMode" type="text" data-ng-model="store.Name" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="store.editMode">{{ store.Address }}</p>
+                            <input data-ng-show="store.editMode" type="text" data-ng-model="store.Address" />
+                        </td>
+                        <td>
+                            <p data-ng-hide="store.editMode">
+                                <a data-ng-click="toggleEdit(store)" href="javascript:;">Edit</a> |
+                                <a data-ng-click="deletestore(store)" href="javascript:;">Delete</a>
+                            </p>
+                            <p data-ng-show="store.editMode">
+                                <a data-ng-click="save(store)" href="javascript:;">Save</a> |
+                                <a data-ng-click="toggleEdit(store)" href="javascript:;">Cancel</a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+                <hr />
+            </div>
+        </div>
+    </div>
+    <!-- #endregion -->
+
+    <!-- #region Ajax-loader -->
+    <div id="mydiv" data-ng-show="loading">
+        <img src="~/Content/ajax-loader.gif" class="ajax-loader" />
+    </div>
+    <!-- #endregion -->
+
+</div>
+
+<!-- #region Footer -->
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">SZ - 2016...idvillota@gmail.com</p>
+    </div>
+</footer>
+<!-- #endregion -->
