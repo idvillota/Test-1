@@ -10817,14 +10817,14 @@
             <summary>
             This method is called before <see cref="M:System.Data.Common.DbTransaction.Commit"/> is invoked.
             </summary>
-            <param name="transaction">The transaction being commited.</param>
+            <param name="transaction">The transaction being committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
         </member>
         <member name="M:System.Data.Entity.Infrastructure.Interception.IDbTransactionInterceptor.Committed(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
             <summary>
             This method is called after <see cref="M:System.Data.Common.DbTransaction.Commit"/> is invoked.
             </summary>
-            <param name="transaction">The transaction that was commited.</param>
+            <param name="transaction">The transaction that was committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
         </member>
         <member name="M:System.Data.Entity.Infrastructure.Interception.IDbTransactionInterceptor.Disposing(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
@@ -11198,7 +11198,7 @@
             <summary>
             Does not write to log unless overridden.
             </summary>
-            <param name="transaction">The transaction being commited.</param>
+            <param name="transaction">The transaction being committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
         </member>
         <member name="M:System.Data.Entity.Infrastructure.Interception.DatabaseLogFormatter.Committed(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
@@ -11207,7 +11207,7 @@
             The default implementation of this method filters by <see cref="T:System.Data.Entity.DbContext"/> set into
             <see cref="P:System.Data.Entity.Infrastructure.Interception.DatabaseLogFormatter.Context"/>, if any, and then logs the event.
             </summary>
-            <param name="transaction">The transaction that was commited.</param>
+            <param name="transaction">The transaction that was committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
         </member>
         <member name="M:System.Data.Entity.Infrastructure.Interception.DatabaseLogFormatter.Disposing(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)">
@@ -13030,7 +13030,7 @@
             <summary>
             Can be implemented in a derived class.
             </summary>
-            <param name="transaction">The transaction being commited.</param>
+            <param name="transaction">The transaction being committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
             <seealso cref="M:System.Data.Entity.Infrastructure.Interception.IDbTransactionInterceptor.Committing(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)"/>
         </member>
@@ -13038,7 +13038,7 @@
             <summary>
             Can be implemented in a derived class.
             </summary>
-            <param name="transaction">The transaction that was commited.</param>
+            <param name="transaction">The transaction that was committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
             <seealso cref="M:System.Data.Entity.Infrastructure.Interception.IDbTransactionInterceptor.Committed(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)"/>
         </member>
@@ -13542,7 +13542,7 @@
             If there was an exception thrown checks the database for this transaction and rethrows it if not found.
             Otherwise marks the commit as succeeded and queues the transaction information to be deleted.
             </summary>
-            <param name="transaction">The transaction that was commited.</param>
+            <param name="transaction">The transaction that was committed.</param>
             <param name="interceptionContext">Contextual information associated with the call.</param>
             <seealso cref="M:System.Data.Entity.Infrastructure.Interception.IDbTransactionInterceptor.Committed(System.Data.Common.DbTransaction,System.Data.Entity.Infrastructure.Interception.DbTransactionInterceptionContext)"/>
         </member>
