@@ -52455,7 +52455,7 @@
             <summary>
             Initializes a new instance of <see cref="T:System.Data.Entity.ModelConfiguration.Conventions.PropertyMaxLengthConvention"/> with the specified length.
             </summary>
-            <param name="length">The maximum lenght of properties.</param>
+            <param name="length">The maximum length of properties.</param>
         </member>
         <member name="M:System.Data.Entity.ModelConfiguration.Conventions.PropertyMaxLengthConvention.Apply(System.Data.Entity.Core.Metadata.Edm.EntityType,System.Data.Entity.Infrastructure.DbModel)">
             <inheritdoc/>
