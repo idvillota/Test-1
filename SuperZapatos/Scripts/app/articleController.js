@@ -29,7 +29,7 @@
             $scope.loading = false;
             alert("Added Successfully!!");
         }).error(function (data) {
-            $scope.error = "An Error has occured while Adding Article! " + data;
+            $scope.error = "An Error has occurred while Adding Article! " + data;
             $scope.loading = false;
         });
     };
@@ -43,7 +43,7 @@
             myArticle.editMode = false;
             $scope.loading = false;
         }).error(function (data) {
-            $scope.error = "An Error has occured while Saving Article! " + data;
+            $scope.error = "An Error has occurred while Saving Article! " + data;
             $scope.loading = false;
         });
     };
@@ -62,7 +62,7 @@
             $scope.loading = false;
             alert("Deleted Successfully!!");
         }).error(function (data) {
-            $scope.error = "An Error has occured while Saving Article! " + data;
+            $scope.error = "An Error has occurred while Saving Article! " + data;
             $scope.loading = false;
         });
     }
