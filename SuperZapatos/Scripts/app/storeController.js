@@ -29,7 +29,7 @@
             $scope.loading = false;
             alert("Added Successfully!!");
         }).error(function (data) {
-            $scope.error = "An Error has occured while Adding Store! " + data;
+            $scope.error = "An Error has occurred while Adding Store! " + data;
             $scope.loading = false;
         });
     };
@@ -43,7 +43,7 @@
             myStore.editMode = false;
             $scope.loading = false;
         }).error(function (data) {
-            $scope.error = "An Error has occured while Saving store! " + data;
+            $scope.error = "An Error has occurred while Saving store! " + data;
             $scope.loading = false;
         });
     };
@@ -63,7 +63,7 @@
             $scope.loading = false;
             alert("Deleted Successfully!!");
         }).error(function (data) {
-            $scope.error = "An Error has occured while Saving Store! " + data;
+            $scope.error = "An Error has occurred while Saving Store! " + data;
             $scope.loading = false;
         });
     }
