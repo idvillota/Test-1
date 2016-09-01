@@ -35411,7 +35411,7 @@
             <exception cref="T:System.InvalidOperationException"> If State is not Modified or Unchanged </exception>
         </member>
         <member name="M:System.Data.Entity.Core.Objects.ObjectStateEntry.RejectPropertyChanges(System.String)">
-            <summary>Rejects any changes made to the property with the given name since the property was last loaded, attached, saved, or changes were accepted. The orginal value of the property is stored and the property will no longer be marked as modified.</summary>
+            <summary>Rejects any changes made to the property with the given name since the property was last loaded, attached, saved, or changes were accepted. The original value of the property is stored and the property will no longer be marked as modified.</summary>
             <param name="propertyName">The name of the property to change.</param>
         </member>
         <member name="M:System.Data.Entity.Core.Objects.ObjectStateEntry.IsPropertyChanged(System.String)">
