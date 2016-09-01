@@ -13119,7 +13119,7 @@
             using <see cref="T:System.Data.Entity.DbConfiguration"/>.
             </summary>
             <remarks>
-            By default EF will poll the resolved <see cref="T:System.Data.Entity.Infrastructure.TransactionContext"/> to check wether the database schema is compatible and
+            By default EF will poll the resolved <see cref="T:System.Data.Entity.Infrastructure.TransactionContext"/> to check whether the database schema is compatible and
             will try to modify it accordingly if it's not. To disable this check call
             <code>Database.SetInitializer&lt;TTransactionContext&gt;(null)</code> where TTransactionContext is the type of the resolved context.
             </remarks>
