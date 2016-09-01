@@ -21972,7 +21972,7 @@
         <member name="M:System.Data.Entity.Core.Common.DbProviderServices.GetExecutionStrategy(System.Data.Common.DbConnection,System.String)">
             <summary>
             Gets the <see cref="T:System.Data.Entity.Infrastructure.IDbExecutionStrategy"/> that will be used to execute methods that use the specified connection.
-            This overload should be used by the derived classes for compatability with wrapping providers.
+            This overload should be used by the derived classes for compatibility with wrapping providers.
             </summary>
             <param name="connection">The database connection</param>
             <param name="providerInvariantName">The provider invariant name</param>
